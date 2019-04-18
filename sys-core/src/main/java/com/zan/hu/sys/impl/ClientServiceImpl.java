@@ -1,13 +1,15 @@
 package com.zan.hu.sys.impl;
 
-import com.zan.hu.sys.domain.Client;
 import com.zan.hu.sys.ClientService;
 import com.zan.hu.sys.SysClient;
+import com.zan.hu.sys.domain.Client;
 import com.zan.hu.sys.mapper.ClientMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @version 1.0
@@ -38,7 +40,28 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Client selectByClientId(String clientId) {
-        return clientMapper.selectByClientId(clientId);
+    public void updateClient(SysClient sysClient) {
+        Client client = clientMapper.selectByClientId(sysClient.getClientId());
+        if (client != null) {
+//            BeanUtils.copyProperties();
+//            clientMapper.updateByPrimaryKeySelective()
+        }
     }
+
+    @Override
+    public void deleteClient(Long clientId) {
+
+    }
+
+    @Override
+    public List<SysClient> list() {
+        return null;
+    }
+
+    @Override
+    public Client selectByClientId(String clientId) {
+        Client client = clientMapper.selectByClientId(clientId);
+        return client;
+    }
+
 }
