@@ -1,6 +1,6 @@
 package com.zan.hu.sys.mapper;
 
-import com.zan.hu.auth.domin.Client;
+import com.zan.hu.sys.domain.Client;
 import org.apache.ibatis.annotations.Param;
 import tk.mybatis.mapper.common.Mapper;
 

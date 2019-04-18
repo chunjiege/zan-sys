@@ -2,6 +2,7 @@ package com.zan.hu.sys;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.context.annotation.ComponentScan;
 import tk.mybatis.spring.annotation.MapperScan;
 
 /**
@@ -11,6 +12,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  * @Description todo
  **/
 @SpringCloudApplication
+@ComponentScan("com.zan.hu")
 @MapperScan("com.zan.hu.sys.mapper")
 public class SysApplication {
     public static void main(String[] args) {

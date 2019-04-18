@@ -1,5 +1,5 @@
 spring:
-#mysql db
+  #mysql db
   datasource:
     username: root
     password: 123456
@@ -14,3 +14,12 @@ security:
     public-key: classpath:public.cert
 server:
   port: 8200
+logging:
+  level:
+    com.zan.hu.auth: debug
+
+#----白名单
+white:
+  list:
+    requestMapping:
+      - /api/global

@@ -1,9 +1,11 @@
 package com.zan.hu.sys;
 
-import com.zan.hu.auth.SysGlobalUser;
+import com.zan.hu.sys.domain.GlobalUser;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @version 1.0
@@ -16,6 +18,8 @@ public interface GlobalUserService {
 
     @PostMapping
     void register(@RequestBody SysGlobalUser sysGlobalUser) throws Exception;
-    @RequestMapping(value = "/authentication")
-    Object getAuthentication();
+
+    @GetMapping("/account")
+    GlobalUser selectByAccount(@RequestParam("account") String account);
+
 }

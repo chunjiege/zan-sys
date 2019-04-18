@@ -1,13 +1,11 @@
 package com.zan.hu.sys.impl;
 
-import com.zan.hu.auth.SysGlobalUser;
-import com.zan.hu.auth.domin.GlobalUser;
+import com.zan.hu.sys.domain.GlobalUser;
 import com.zan.hu.sys.GlobalUserService;
+import com.zan.hu.sys.SysGlobalUser;
 import com.zan.hu.sys.mapper.GlobalUserMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,9 +37,10 @@ public class GlobalUserServiceImpl implements GlobalUserService {
         globalUserMapper.insertSelective(globalUser);
     }
 
-    public Object getAuthentication() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println(auth);
-        return auth.getPrincipal();
+    @Override
+    public GlobalUser selectByAccount(String account) {
+        GlobalUser globalUser = globalUserMapper.selectByAccount(account);
+        return globalUser;
     }
+
 }

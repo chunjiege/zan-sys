@@ -1,8 +1,8 @@
 package com.zan.hu.sys.impl;
 
-import com.zan.hu.auth.SysClient;
-import com.zan.hu.auth.domin.Client;
+import com.zan.hu.sys.domain.Client;
 import com.zan.hu.sys.ClientService;
+import com.zan.hu.sys.SysClient;
 import com.zan.hu.sys.mapper.ClientMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +35,10 @@ public class ClientServiceImpl implements ClientService {
         BeanUtils.copyProperties(sysClient, client);
         client.setClientSecret(passwordEncoder.encode(client.getClientSecret()));
         clientMapper.insertSelective(client);
+    }
+
+    @Override
+    public Client selectByClientId(String clientId) {
+        return clientMapper.selectByClientId(clientId);
     }
 }

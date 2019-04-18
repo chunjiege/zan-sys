@@ -10,6 +10,7 @@
     <modules>
         <module>sys-api</module>
         <module>sys-core</module>
+        <module>sys-model</module>
     </modules>
 
     <repositories>
