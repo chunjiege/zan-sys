@@ -5,3 +5,10 @@ eureka:
 spring:
   application:
     name: sys-server
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+  profiles:
+    active: dev
