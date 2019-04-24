@@ -36,7 +36,7 @@ public interface ClientService {
      * @param sysClient
      */
     @PutMapping
-    void updateClient(@RequestBody SysClient sysClient);
+    void updateClient(@RequestBody SysClient sysClient) throws IllegalAccessException;
 
     @DeleteMapping("/{clientId}")
     void deleteClient(@PathVariable("clientId") Long clientId);

@@ -292,4 +292,23 @@ public class Client implements Serializable {
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", clientId='" + clientId + '\'' +
+                ", clientSecret='" + clientSecret + '\'' +
+                ", resourceIds='" + resourceIds + '\'' +
+                ", scope='" + scope + '\'' +
+                ", authorizedGrantTypes='" + authorizedGrantTypes + '\'' +
+                ", authorities='" + authorities + '\'' +
+                ", accessTokenValidity=" + accessTokenValidity +
+                ", refreshTokenValidity=" + refreshTokenValidity +
+                ", autoapprove='" + autoapprove + '\'' +
+                ", enabled=" + enabled +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
 }
