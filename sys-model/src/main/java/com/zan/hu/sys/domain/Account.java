@@ -1,15 +1,12 @@
 package com.zan.hu.sys.domain;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.UUID;
+import javax.persistence.*;
 
-@Table(name = "`global_user`")
-public class GlobalUser implements Serializable {
+@Table(name = "`account`")
+public class Account implements Serializable {
     /**
      * 用户 ID
      */
@@ -25,30 +22,12 @@ public class GlobalUser implements Serializable {
     /**
      * 账号
      */
-    private String account;
+    private String username;
 
     /**
      * 密码
      */
     private String password;
-
-    /**
-     * access_token
-     */
-    @Column(name = "access_token")
-    private String accessToken;
-
-    /**
-     * refresh_token
-     */
-    @Column(name = "refresh_token")
-    private String refreshToken;
-
-    /**
-     * expires_in
-     */
-    @Column(name = "expires_in")
-    private Date expiresIn;
 
     /**
      * 用户锁定
@@ -62,11 +41,9 @@ public class GlobalUser implements Serializable {
      */
     private Boolean expired;
 
-    @Column(name = "created_at")
-    private Date createdAt;
+    private Date created;
 
-    @Column(name = "updated_at")
-    private Date updatedAt;
+    private Date updated;
 
     private static final long serialVersionUID = 1L;
 
@@ -111,18 +88,19 @@ public class GlobalUser implements Serializable {
      *
      * @return account - 账号
      */
-    public String getAccount() {
-        return account;
+    public String getUsername() {
+        return username;
     }
 
     /**
      * 设置账号
      *
-     * @param account 账号
+     * @param username 账号
      */
-    public void setAccount(String account) {
-        this.account = account == null ? null : account.trim();
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
     }
+
 
     /**
      * 获取密码
@@ -140,30 +118,6 @@ public class GlobalUser implements Serializable {
      */
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
-    }
-
-    public String getAccessToken() {
-        return accessToken;
-    }
-
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
-    }
-
-    public String getRefreshToken() {
-        return refreshToken;
-    }
-
-    public void setRefreshToken(String refreshToken) {
-        this.refreshToken = refreshToken;
-    }
-
-    public Date getExpiresIn() {
-        return expiresIn;
-    }
-
-    public void setExpiresIn(Date expiresIn) {
-        this.expiresIn = expiresIn;
     }
 
     /**
@@ -217,30 +171,35 @@ public class GlobalUser implements Serializable {
     }
 
     /**
-     * @return created_at
+     * @return created
      */
-    public Date getCreatedAt() {
-        return createdAt;
+    public Date getCreated() {
+        return created;
     }
 
     /**
-     * @param createdAt
+     * @param created
      */
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setCreated(Date created) {
+        this.created = created;
     }
 
     /**
-     * @return updated_at
+     * @return updated
      */
-    public Date getUpdatedAt() {
-        return updatedAt;
+    public Date getUpdated() {
+        return updated;
     }
 
     /**
-     * @param updatedAt
+     * @param updated
      */
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setUpdated(Date updated) {
+        this.updated = updated;
+    }
+
+
+    public String getGUuid() {
+        return UUID.randomUUID().toString().replace("-", "");
     }
 }

@@ -1,6 +1,7 @@
 package com.zan.hu.sys;
 
 import com.zan.hu.sys.domain.Client;
+import com.zan.hu.sys.query.ClientQuery;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,26 +25,45 @@ public interface ClientService {
     /**
      * 创建oauth客户端
      *
-     * @param sysClient
+     * @param clientQuery
      * @throws Exception
      */
     @PostMapping
-    void createClient(@RequestBody SysClient sysClient) throws Exception;
+    void create(@RequestBody ClientQuery clientQuery) throws Exception;
 
     /**
      * 更新oauth客户端
      *
-     * @param sysClient
+     * @param clientQuery
      */
     @PutMapping
-    void updateClient(@RequestBody SysClient sysClient) throws IllegalAccessException;
-
-    @DeleteMapping("/{clientId}")
-    void deleteClient(@PathVariable("clientId") Long clientId);
+    void update(@RequestBody ClientQuery clientQuery) throws IllegalAccessException;
 
 
-    List<SysClient> list();
+    /**
+     * 删除oauth客户端
+     *
+     * @param id 主键
+     */
+    @DeleteMapping("/{id}")
+    void delete(@PathVariable("id") Long id);
 
+
+    /**
+     * 分页批量查询
+     *
+     * @param clientQuery
+     * @return
+     */
+    @GetMapping("/list")
+    List<Client> page(ClientQuery clientQuery);
+
+    /**
+     * 根据clientId查找实例
+     *
+     * @param clientId
+     * @return
+     */
     @GetMapping("/clientId")
     Client selectByClientId(@RequestParam("clientId") String clientId);
 }

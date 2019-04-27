@@ -63,15 +63,13 @@ public class Client implements Serializable {
     /**
      * 自动授予
      */
-    private String autoapprove;
+    private String autoApprove;
 
     private Boolean enabled;
 
-    @Column(name = "created_at")
-    private Date createdAt;
+    private Date created;
 
-    @Column(name = "updated_at")
-    private Date updatedAt;
+    private Date updated;
 
     private static final long serialVersionUID = 1L;
 
@@ -239,16 +237,16 @@ public class Client implements Serializable {
      * @return autoapprove - 自动授予
      */
     public String getAutoapprove() {
-        return autoapprove;
+        return autoApprove;
     }
 
     /**
      * 设置自动授予
      *
-     * @param autoapprove 自动授予
+     * @param autoApprove 自动授予
      */
-    public void setAutoapprove(String autoapprove) {
-        this.autoapprove = autoapprove == null ? null : autoapprove.trim();
+    public void setAutoApprove(String autoApprove) {
+        this.autoApprove = autoApprove == null ? null : autoApprove.trim();
     }
 
     /**
@@ -265,32 +263,24 @@ public class Client implements Serializable {
         this.enabled = enabled;
     }
 
-    /**
-     * @return created_at
-     */
-    public Date getCreatedAt() {
-        return createdAt;
+    public String getAutoApprove() {
+        return autoApprove;
     }
 
-    /**
-     * @param createdAt
-     */
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public Date getCreated() {
+        return created;
     }
 
-    /**
-     * @return updated_at
-     */
-    public Date getUpdatedAt() {
-        return updatedAt;
+    public void setCreated(Date created) {
+        this.created = created;
     }
 
-    /**
-     * @param updatedAt
-     */
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
+    public Date getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Date updated) {
+        this.updated = updated;
     }
 
     @Override
@@ -305,10 +295,10 @@ public class Client implements Serializable {
                 ", authorities='" + authorities + '\'' +
                 ", accessTokenValidity=" + accessTokenValidity +
                 ", refreshTokenValidity=" + refreshTokenValidity +
-                ", autoapprove='" + autoapprove + '\'' +
+                ", autoApprove='" + autoApprove + '\'' +
                 ", enabled=" + enabled +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
+                ", created=" + created +
+                ", updated=" + updated +
                 '}';
     }
 }

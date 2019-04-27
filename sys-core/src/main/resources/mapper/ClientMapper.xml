@@ -14,16 +14,16 @@
         <result column="authorities" jdbcType="VARCHAR" property="authorities"/>
         <result column="access_token_validity" jdbcType="INTEGER" property="accessTokenValidity"/>
         <result column="refresh_token_validity" jdbcType="INTEGER" property="refreshTokenValidity"/>
-        <result column="autoapprove" jdbcType="VARCHAR" property="autoapprove"/>
+        <result column="autoApprove" jdbcType="VARCHAR" property="auto_approve"/>
         <result column="enabled" jdbcType="BIT" property="enabled"/>
-        <result column="created_at" jdbcType="TIMESTAMP" property="createdAt"/>
-        <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
     </resultMap>
 
     <sql id="Base_Column_List">
     id, client_id, client_secret, resource_ids, `scope`, authorized_grant_types, authorities,
-    access_token_validity, refresh_token_validity, autoapprove, enabled, created_at,
-    updated_at
+    access_token_validity, refresh_token_validity, auto_approve, enabled, created,
+    updated
   </sql>
 
 
