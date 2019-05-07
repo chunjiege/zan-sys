@@ -1,6 +1,5 @@
 package com.zan.hu.sys.query;
 
-import com.zan.hu.common.model.query.BaseQuery;
 import lombok.Data;
 
 /**
@@ -10,7 +9,7 @@ import lombok.Data;
  * @Description todo
  **/
 @Data
-public class ClientQuery extends BaseQuery {
+public class ClientQuery {
 
     private String clientId;
 

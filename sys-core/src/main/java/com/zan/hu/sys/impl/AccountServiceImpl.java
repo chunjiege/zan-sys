@@ -7,8 +7,10 @@ import com.zan.hu.sys.query.AccountQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @version 1.0
@@ -55,5 +57,18 @@ public class AccountServiceImpl implements AccountService {
     public Account selectByUsername(String username) {
         Account account = accountMapper.selectByUsername(username);
         return account;
+    }
+
+    @Override
+    public void insertBatch() {
+        List<Account> accounts = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            Account account = new Account();
+            account.setUsername("admin" + i);
+            account.setPassword(passwordEncoder.encode("jkls" + i));
+            account.setGuid(account.getGUuid());
+            accounts.add(account);
+        }
+        accountMapper.insertBatchByAnnotations(accounts);
     }
 }

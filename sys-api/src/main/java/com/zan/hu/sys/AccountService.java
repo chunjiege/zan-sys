@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 /**
  * @version 1.0
  * @Author hupeng
@@ -43,5 +45,6 @@ public interface AccountService {
     @GetMapping("/username")
     Account selectByUsername(@RequestParam("username") String username);
 
-
+    @PostMapping("/batch")
+    void insertBatch();
 }

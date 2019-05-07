@@ -21,6 +21,16 @@
     updated
   </sql>
 
+    <insert id="insertBatchXml" parameterType="java.util.List">
+        insert into account (guid,username, password)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.guid},
+            #{item.username},
+            #{item.password})
+        </foreach>
+    </insert>
+
     <select id="selectByUsername" resultMap="BaseResultMap" parameterType="java.lang.String">
         select
         <include refid="Base_Column_List"/>
