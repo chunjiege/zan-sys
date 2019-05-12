@@ -12,7 +12,7 @@
     <artifactId>sys-core</artifactId>
 
     <properties>
-        <docker.name>gateway-server</docker.name>
+        <docker.name>sys-server</docker.name>
     </properties>
 
     <dependencies>
