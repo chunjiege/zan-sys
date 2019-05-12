@@ -3,6 +3,7 @@ package com.zan.hu.sys;
 import com.zan.hu.sys.domain.Account;
 import com.zan.hu.sys.query.AccountQuery;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,8 +43,8 @@ public interface AccountService {
      * @param username
      * @return
      */
-    @GetMapping("/username")
-    Account selectByUsername(@RequestParam("username") String username);
+    @GetMapping("/{username}")
+    Account selectByUsername(@PathVariable("username") String username);
 
     @PostMapping("/batch")
     void insertBatch();
