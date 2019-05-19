@@ -1,6 +1,7 @@
 package com.zan.hu.sys;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.context.annotation.ComponentScan;
 import tk.mybatis.spring.annotation.MapperScan;
@@ -14,6 +15,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @SpringCloudApplication
 @ComponentScan("com.zan.hu")
 @MapperScan("com.zan.hu.sys.mapper")
+@ServletComponentScan
 public class SysApplication {
     public static void main(String[] args) {
         SpringApplication.run(SysApplication.class, args);
