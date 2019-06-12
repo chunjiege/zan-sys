@@ -1,16 +1,20 @@
 package com.zan.hu.sys.mapper;
 
-import com.zan.hu.sys.domain.Account;
+import com.zan.hu.sys.entity.Account;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.jdbc.SQL;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Map;
 
+@CacheConfig(cacheNames = "account")
 public interface AccountMapper extends Mapper<Account> {
 
+    @Cacheable(key = "#p0")
     Account selectByUsername(String username);
 
     void insertBatchXml(List<Account> accounts);

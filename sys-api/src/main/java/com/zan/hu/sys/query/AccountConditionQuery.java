@@ -9,7 +9,7 @@ import lombok.Data;
  * @Description todo
  **/
 @Data
-public class AccountQuery {
+public class AccountConditionQuery {
 
     private String username;
 

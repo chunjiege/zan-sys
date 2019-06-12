@@ -5,6 +5,28 @@ spring:
     password: 123456
     url: jdbc:mysql://118.31.20.148:3306/zan?useSSL=false&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&allowMultiQueries=true
     driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    stream:
+      binders:
+        defaultRabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                addresses: 118.31.20.148
+                username: hupeng
+                password: hupeng
+                virtual-host: /
+      # 服务的整合处理
+      bindings:
+        # 这个名字是一个通道的名称
+        output:
+          destination: studyExchange
+          content-type: application/json
+          binder: defaultRabbit # 设置要绑定的消息服务的具体设置
+  redis:
+    host: 118.31.20.148
+    port: 6378
 #mybatis
 mybatis:
   mapper-locations: classpath:mapper/*.xml
@@ -16,7 +38,7 @@ logging:
     com.zan.hu.sys: error
 
 #----白名单
-white:
-  list:
-    requestMapping:
-      - /api/global
+#white:
+#  list:
+#    requestMapping:
+#      - /api/account

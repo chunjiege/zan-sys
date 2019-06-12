@@ -9,7 +9,7 @@ import lombok.Data;
  * @Description todo
  **/
 @Data
-public class ClientQuery {
+public class ClientConditionQuery {
 
     private String clientId;
 

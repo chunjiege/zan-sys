@@ -2,7 +2,6 @@ package com.zan.hu.sys.filter;
 
 import com.zan.hu.mybatis.sql.SqlThreadLocal;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -11,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
@@ -34,8 +34,9 @@ public class ParamFilter implements Filter {
     // 请求处理之后进行调用，但是在视图被渲染之前（Controller方法调用之后
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        if (servletRequest.getAttribute("tenantId") != null) {
-            sqlThreadLocal.getThreadLocal().set(servletRequest.getAttribute("tenantId").toString());
+        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
+        if (httpServletRequest.getHeader("tenantId") != null) {
+            sqlThreadLocal.getThreadLocal().set(httpServletRequest.getHeader("tenantId"));
         }
         filterChain.doFilter(servletRequest, servletResponse);
     }

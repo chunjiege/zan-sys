@@ -1,10 +1,10 @@
 package com.zan.hu.sys.impl;
 
 import com.zan.hu.sys.AccountService;
-import com.zan.hu.sys.domain.Account;
+import com.zan.hu.sys.dto.AccountInputDTO;
+import com.zan.hu.sys.entity.Account;
 import com.zan.hu.sys.mapper.AccountMapper;
-import com.zan.hu.sys.query.AccountQuery;
-import org.springframework.beans.BeanUtils;
+import com.zan.hu.sys.message.MessageProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,18 +27,23 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private MessageProvider messageProvider;
+
     @Override
-    public void register(AccountQuery accountQuery) throws Exception {
-        Account account = selectByUsername(accountQuery.getUsername());
+    public void register(AccountInputDTO accountInputDto) throws Exception {
+        Account account = selectByUsername(accountInputDto.getUsername());
         if (account != null) {
             throw new Exception("");
         }
         account = new Account();
-        BeanUtils.copyProperties(accountQuery, account);
+        account.doForward(accountInputDto, account);
         account.setGuid(account.getGUuid());
-        account.setPassword(passwordEncoder.encode(accountQuery.getPassword()));
+        account.setPassword(passwordEncoder.encode(accountInputDto.getPassword()));
         accountMapper.insertSelective(account);
         //todo通知用户中心那边生成用户信息
+        messageProvider.send(account.getGuid());
+        System.out.println("sys发送消息成功");
     }
 
     @Override
@@ -60,15 +65,15 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void insertBatch() {
+    public void insertBatch(List<AccountInputDTO> accountInputDTOs) {
         List<Account> accounts = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        accountInputDTOs.forEach(p -> {
+            p.setPassword(passwordEncoder.encode(p.getPassword()));
             Account account = new Account();
-            account.setUsername("admin" + i);
-            account.setPassword(passwordEncoder.encode("jkls" + i));
+            account = account.doForward(p, account);
             account.setGuid(account.getGUuid());
             accounts.add(account);
-        }
+        });
         accountMapper.insertBatchByAnnotations(accounts);
     }
 }

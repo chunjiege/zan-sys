@@ -1,10 +1,10 @@
 package com.zan.hu.sys.impl;
 
-import com.zan.hu.common.utils.BeanComUtils;
+import com.zan.hu.common.utils.convert.BeanComUtils;
 import com.zan.hu.sys.ClientService;
-import com.zan.hu.sys.domain.Client;
+import com.zan.hu.sys.dto.ClientInputDTO;
+import com.zan.hu.sys.entity.Client;
 import com.zan.hu.sys.mapper.ClientMapper;
-import com.zan.hu.sys.query.ClientQuery;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,23 +31,23 @@ public class ClientServiceImpl implements ClientService {
 
 
     @Override
-    public void create(ClientQuery clientQuery) throws Exception {
-        Client client = clientMapper.selectByClientIdOrClientSecret(clientQuery.getClientId(), clientQuery.getClientSecret());
+    public void create(ClientInputDTO clientInputDTO) throws Exception {
+        Client client = clientMapper.selectByClientIdOrClientSecret(clientInputDTO.getClientId(), clientInputDTO.getClientSecret());
         if (client != null) {
             throw new Exception("");
         }
         client = new Client();
-        BeanComUtils.copyProperties(client, client);
+        client = client.doForward(clientInputDTO, client);
         client.setClientSecret(passwordEncoder.encode(client.getClientSecret()));
         clientMapper.insertSelective(client);
     }
 
     @Override
-    public void update(ClientQuery clientQuery) throws IllegalAccessException {
-        Client client = clientMapper.selectByClientId(clientQuery.getClientId());
+    public void update(ClientInputDTO clientInputDTO) throws IllegalAccessException {
+        Client client = clientMapper.selectByClientId(clientInputDTO.getClientId());
         if (client != null) {
-            String[] attributes = BeanComUtils.checkObjFieldIsNull(clientQuery);
-            BeanComUtils.copyProperties(clientQuery, client, attributes);
+            String[] attributes = BeanComUtils.checkObjFieldIsNull(clientInputDTO);
+            client = client.doForward(clientInputDTO, client, attributes);
             clientMapper.updateByPrimaryKeySelective(client);
         }
     }
@@ -59,7 +59,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public List<Client> page(ClientQuery clientQuery) {
+    public List<Client> page(ClientInputDTO clientInputDTO) {
         Client clientPara = new Client();
         RowBounds rowBounds = new RowBounds();
         List<Client> clients = clientMapper.selectByExampleAndRowBounds(clientPara, rowBounds);

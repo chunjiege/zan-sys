@@ -1,14 +1,13 @@
 package com.zan.hu.sys;
 
-import com.zan.hu.sys.domain.Account;
-import com.zan.hu.sys.query.AccountQuery;
+import com.zan.hu.sys.dto.AccountInputDTO;
+import com.zan.hu.sys.entity.Account;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -25,11 +24,11 @@ public interface AccountService {
     /**
      * 注册接口
      *
-     * @param accountQuery
+     * @param accountInputDto
      * @throws Exception
      */
     @PostMapping
-    void register(@RequestBody AccountQuery accountQuery) throws Exception;
+    void register(@RequestBody AccountInputDTO accountInputDto) throws Exception;
 
     /**
      * 更新密码
@@ -47,5 +46,5 @@ public interface AccountService {
     Account selectByUsername(@PathVariable("username") String username);
 
     @PostMapping("/batch")
-    void insertBatch();
+    void insertBatch(@RequestBody List<AccountInputDTO> accountInputDTOs);
 }
