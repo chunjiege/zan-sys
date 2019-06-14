@@ -19,7 +19,6 @@
         <dependency>
             <groupId>com.zan.hu</groupId>
             <artifactId>common-core</artifactId>
-            <version>${parent.version}</version>
         </dependency>
     </dependencies>
 </project>
