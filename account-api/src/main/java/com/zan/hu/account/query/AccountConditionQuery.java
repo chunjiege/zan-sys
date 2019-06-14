@@ -1,4 +1,4 @@
-package com.zan.hu.sys.query;
+package com.zan.hu.account.query;
 
 import lombok.Data;
 

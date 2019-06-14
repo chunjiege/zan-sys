@@ -1,10 +1,10 @@
-package com.zan.hu.sys.impl;
+package com.zan.hu.account.impl;
 
 import com.zan.hu.common.utils.convert.BeanComUtils;
-import com.zan.hu.sys.ClientService;
-import com.zan.hu.sys.dto.ClientInputDTO;
-import com.zan.hu.sys.entity.Client;
-import com.zan.hu.sys.mapper.ClientMapper;
+import com.zan.hu.account.ClientService;
+import com.zan.hu.account.dto.ClientInputDTO;
+import com.zan.hu.account.entity.Client;
+import com.zan.hu.account.mapper.ClientMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;

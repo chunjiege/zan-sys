@@ -1,4 +1,4 @@
-package com.zan.hu.sys;
+package com.zan.hu.account;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
@@ -15,7 +15,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  **/
 @SpringCloudApplication
 @ComponentScan("com.zan.hu")
-@MapperScan("com.zan.hu.sys.mapper")
+@MapperScan("com.zan.hu.account.mapper")
 @ServletComponentScan
 @EnableCaching
 public class AccountApplication {

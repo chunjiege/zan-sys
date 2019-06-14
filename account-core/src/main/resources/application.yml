@@ -36,9 +36,3 @@ server:
 logging:
   level:
     com.zan.hu.sys: error
-
-#----白名单
-#white:
-#  list:
-#    requestMapping:
-#      - /api/account

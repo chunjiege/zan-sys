@@ -1,4 +1,4 @@
-package com.zan.hu.sys.dto;
+package com.zan.hu.account.dto;
 
 import lombok.Data;
 
