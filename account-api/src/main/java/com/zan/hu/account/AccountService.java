@@ -1,7 +1,7 @@
-package com.zan.hu.sys;
+package com.zan.hu.account;
 
-import com.zan.hu.sys.dto.AccountInputDTO;
-import com.zan.hu.sys.entity.Account;
+import com.zan.hu.account.dto.AccountInputDTO;
+import com.zan.hu.account.entity.Account;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,8 +1,8 @@
-package com.zan.hu.sys.entity;
+package com.zan.hu.account.entity;
 
 import com.zan.hu.common.utils.convert.BeanComUtils;
 import com.zan.hu.common.utils.convert.Converter;
-import com.zan.hu.sys.dto.ClientInputDTO;
+import com.zan.hu.account.dto.ClientInputDTO;
 import lombok.Data;
 
 import javax.persistence.Column;

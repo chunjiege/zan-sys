@@ -1,10 +1,10 @@
-package com.zan.hu.sys.impl;
+package com.zan.hu.account.impl;
 
-import com.zan.hu.sys.AccountService;
-import com.zan.hu.sys.dto.AccountInputDTO;
-import com.zan.hu.sys.entity.Account;
-import com.zan.hu.sys.mapper.AccountMapper;
-import com.zan.hu.sys.message.MessageProvider;
+import com.zan.hu.account.AccountService;
+import com.zan.hu.account.dto.AccountInputDTO;
+import com.zan.hu.account.entity.Account;
+import com.zan.hu.account.mapper.AccountMapper;
+import com.zan.hu.account.message.MessageProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,6 +1,6 @@
-package com.zan.hu.sys.mapper;
+package com.zan.hu.account.mapper;
 
-import com.zan.hu.sys.entity.Client;
+import com.zan.hu.account.entity.Client;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;

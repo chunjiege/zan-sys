@@ -1,4 +1,4 @@
-package com.zan.hu.sys.config;
+package com.zan.hu.account.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

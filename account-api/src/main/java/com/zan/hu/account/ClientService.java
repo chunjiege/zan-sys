@@ -1,7 +1,7 @@
-package com.zan.hu.sys;
+package com.zan.hu.account;
 
-import com.zan.hu.sys.dto.ClientInputDTO;
-import com.zan.hu.sys.entity.Client;
+import com.zan.hu.account.dto.ClientInputDTO;
+import com.zan.hu.account.entity.Client;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,8 +1,8 @@
-package com.zan.hu.sys.entity;
+package com.zan.hu.account.entity;
 
+import com.zan.hu.account.dto.AccountInputDTO;
 import com.zan.hu.common.utils.convert.BeanComUtils;
 import com.zan.hu.common.utils.convert.Converter;
-import com.zan.hu.sys.dto.AccountInputDTO;
 import lombok.Data;
 
 import java.io.Serializable;

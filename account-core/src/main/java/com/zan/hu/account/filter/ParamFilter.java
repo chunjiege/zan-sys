@@ -1,4 +1,4 @@
-package com.zan.hu.sys.filter;
+package com.zan.hu.account.filter;
 
 import com.zan.hu.mybatis.sql.SqlThreadLocal;
 import org.springframework.beans.factory.annotation.Autowired;

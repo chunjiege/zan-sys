@@ -1,4 +1,4 @@
-package com.zan.hu.sys.message;
+package com.zan.hu.account.message;
 
 /**
  * @version 1.0

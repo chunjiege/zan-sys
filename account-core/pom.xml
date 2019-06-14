@@ -84,7 +84,7 @@
                 </executions>
                 <configuration>
                     <includeSystemScope>true</includeSystemScope>
-                    <mainClass>com.zan.hu.sys.AccountApplication</mainClass>
+                    <mainClass>com.zan.hu.account.AccountApplication</mainClass>
                 </configuration>
             </plugin>
             <plugin>
