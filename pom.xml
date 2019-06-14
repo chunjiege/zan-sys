@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.zan.hu</groupId>
-    <artifactId>zan-sys</artifactId>
+    <artifactId>zan-account</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>sys-api</module>
-        <module>sys-core</module>
-        <module>sys-model</module>
+        <module>account-api</module>
+        <module>account-core</module>
+        <module>account-model</module>
     </modules>
 
     <repositories>

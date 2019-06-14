@@ -18,8 +18,8 @@ import tk.mybatis.spring.annotation.MapperScan;
 @MapperScan("com.zan.hu.sys.mapper")
 @ServletComponentScan
 @EnableCaching
-public class SysApplication {
+public class AccountApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SysApplication.class, args);
+        SpringApplication.run(AccountApplication.class, args);
     }
 }
