@@ -1,4 +1,4 @@
-package com.zan.hu.sys.config;
+package com.zan.hu.account.config;
 
 import com.zan.hu.jwt.ResourceServerConf;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +14,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EnableResourceServer
 public class ResourceConf extends ResourceServerConf {
 
-    private static final String RESOURCE_ID = "sys-server";
+    private static final String RESOURCE_ID = "account-server";
 
     public String resourceId() {
         return RESOURCE_ID;

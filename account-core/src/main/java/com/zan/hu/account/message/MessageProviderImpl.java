@@ -1,4 +1,4 @@
-package com.zan.hu.sys.message;
+package com.zan.hu.account.message;
 
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.messaging.Source;

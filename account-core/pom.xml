@@ -25,22 +25,18 @@
         <dependency>
             <groupId>com.zan.hu</groupId>
             <artifactId>jwt-starter</artifactId>
-            <version>${zan-starter.version}</version>
         </dependency>
         <dependency>
             <groupId>com.zan.hu</groupId>
             <artifactId>response-advice-starter</artifactId>
-            <version>${zan-starter.version}</version>
         </dependency>
         <dependency>
             <groupId>com.zan.hu</groupId>
             <artifactId>mybatis-starter</artifactId>
-            <version>${zan-starter.version}</version>
         </dependency>
         <dependency>
             <groupId>com.zan.hu</groupId>
             <artifactId>redis-starter</artifactId>
-            <version>${parent.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -84,7 +80,7 @@
                 </executions>
                 <configuration>
                     <includeSystemScope>true</includeSystemScope>
-                    <mainClass>com.zan.hu.sys.AccountApplication</mainClass>
+                    <mainClass>com.zan.hu.account.AccountApplication</mainClass>
                 </configuration>
             </plugin>
             <plugin>
